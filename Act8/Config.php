@@ -1,7 +1,7 @@
 <?php
     define("DBUSER","root");
     define("DBHOST","localhost");
-    define("PASSWORD","root");
+    define("PASSWORD","");
     define("DB","Act8");
 
     function connectdb()
@@ -9,7 +9,8 @@
         $con=mysqli_connect(DBHOST,DBUSER,PASSWORD,DB);
         if(!$con)
         {
-            echo "No se pudo acceder a la base de datos";
+            mysqli_connect_error();
+            mysqli_connect_errno();
         }
         return $con;
     }
